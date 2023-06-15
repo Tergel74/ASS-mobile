@@ -7,6 +7,7 @@ class Users {
   String? email;
   String? otp;
   String? newPassword;
+  String? gender;
   String? pfp;
   String? houseId;
   String? role;
@@ -21,6 +22,7 @@ class Users {
     this.email,
     this.otp,
     this.newPassword,
+    this.gender,
     this.pfp,
     this.houseId,
     this.role,
@@ -36,6 +38,7 @@ class Users {
         ? pfp = json['imgUrl']
         : pfp =
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOC9SJyjR7x4e6ar9aEc6UpgmyrSfpZaGzUVu_iRpmwOQTp-GKhoy73iNQFRo28VR3GR8&usqp=CAU';
+    (json['sex'] != null) ? gender = json['sex'] : gender = 'male';
     email = json['email'];
     houseId = json['houseId'];
     role = json['role'];

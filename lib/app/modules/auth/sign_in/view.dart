@@ -7,9 +7,6 @@ class SignInView extends StatelessWidget {
 
   final _signInController = Get.put<SignInController>(SignInController());
 
-  // final emailController =
-  //     TextEditingController(text: 'tergel.b24@tomujin.edu.mn');
-  // final passwordController = TextEditingController(text: '24203');
   final emailController = TextEditingController(text: 'zayadelgerz@gmail.com');
   final passwordController = TextEditingController(text: '12345678');
 
@@ -30,7 +27,7 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: const Color(0xFF474a58),
         body: SafeArea(
           top: true,
           bottom: true,
@@ -40,7 +37,8 @@ class SignInView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const Text('Welcome Back!', style: TextStyle(fontSize: 25)),
+                Text('Welcome Back!',
+                    style: TextStyle(fontSize: 25, color: Colors.white)),
                 const SizedBox(height: 25),
                 Container(
                     height: 60,
@@ -81,7 +79,7 @@ class SignInView extends StatelessWidget {
                   ),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepPurple),
+                        backgroundColor: Colors.redAccent[100]),
                     child: const Text(
                       'Sign In',
                       style:
@@ -99,16 +97,16 @@ class SignInView extends StatelessWidget {
                     const Text(
                       'Not registered?',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                          fontWeight: FontWeight.bold, color: Colors.white),
                     ),
                     const SizedBox(width: 5),
                     TextButton(
                       style: TextButton.styleFrom(padding: EdgeInsets.zero),
-                      child: const Text(
+                      child: Text(
                         'Sign up here',
                         style: TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.bold),
+                            color: Colors.teal[200],
+                            fontWeight: FontWeight.bold),
                       ),
                       onPressed: () {},
                     ),

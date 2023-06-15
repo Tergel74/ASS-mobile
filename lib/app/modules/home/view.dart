@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
-import 'package:iconly/iconly.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'controller.dart';
+import '../auth/controller.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -13,6 +14,18 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final _homeController = Get.find<HomeController>();
+  final _authController = Get.find<AuthController>();
+
+  final userGenderForProfileIcon = {
+    'male': MdiIcons.faceManProfile,
+    'female': MdiIcons.faceWomanProfile
+  };
+
+  @override
+  void initState() {
+    _homeController.currentPage.value = 0;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +43,14 @@ class _HomeViewState extends State<HomeView> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _bottomAppBarItem(context,
-                  icon: IconlyLight.calendar, page: 0, label: 'Schedule'),
+                  icon: MdiIcons.calendarBadge, page: 0, label: 'Schedule'),
               _bottomAppBarItem(context,
-                  icon: IconlyLight.tick_square, page: 1, label: 'Task'),
+                  icon: Icons.task, page: 1, label: 'Task'),
               _bottomAppBarItem(context,
-                  icon: IconlyLight.profile, page: 2, label: 'Profile'),
+                  icon: userGenderForProfileIcon[
+                      _authController.user.value?.gender],
+                  page: 2,
+                  label: 'Profile'),
             ],
           ),
         ),
@@ -55,7 +71,7 @@ class _HomeViewState extends State<HomeView> {
             icon,
             size: 20,
             color: _homeController.currentPage == page
-                ? Colors.deepPurpleAccent
+                ? Colors.redAccent[100]
                 : Colors.grey,
           ),
           Text(
@@ -63,7 +79,7 @@ class _HomeViewState extends State<HomeView> {
             style: TextStyle(
                 fontSize: 13,
                 color: _homeController.currentPage == page
-                    ? Colors.deepPurpleAccent
+                    ? Colors.redAccent[100]
                     : Colors.grey,
                 fontWeight: _homeController.currentPage == page
                     ? FontWeight.w600

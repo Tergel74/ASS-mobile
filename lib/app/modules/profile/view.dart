@@ -10,7 +10,7 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepOrange,
+      backgroundColor: const Color(0xFF474a58),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

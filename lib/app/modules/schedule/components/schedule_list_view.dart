@@ -106,11 +106,15 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                                   ],
                                 ),
                                 const Spacer(flex: 3),
-                                Icon(
-                                    attendanceStatusIcons[_scheduleController
-                                        .events[index].attendanceStatus],
-                                    color: Colors.white,
-                                    size: screenWidth * 0.08),
+                                Tooltip(
+                                  message: _scheduleController
+                                      .events[index].attendanceStatus,
+                                  child: Icon(
+                                      attendanceStatusIcons[_scheduleController
+                                          .events[index].attendanceStatus],
+                                      color: Colors.white,
+                                      size: screenWidth * 0.08),
+                                ),
                                 const Spacer()
                               ],
                             ),

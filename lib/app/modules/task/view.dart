@@ -6,7 +6,7 @@ class TaskView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: Color(0xFF474a58),
       body: Center(
         child: Icon(
           Icons.task,
