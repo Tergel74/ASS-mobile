@@ -43,6 +43,7 @@ dependencies:
   iconly: ^1.0.1
   calendar_timeline: ^1.1.2
   intl: ^0.18.1
+  material_design_icons_flutter: ^7.0.7296
 
 dev_dependencies:
   flutter_test:

@@ -5,6 +5,8 @@ class Event {
   String? date;
   String? startTime;
   String? endTime;
+  String? attendanceStatus;
+  String? attendanceComment;
 
   Event(
       {this.id,
@@ -12,7 +14,9 @@ class Event {
       this.lesson,
       this.date,
       this.startTime,
-      this.endTime});
+      this.endTime,
+      this.attendanceStatus,
+      this.attendanceComment});
 
   Event.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -20,6 +24,8 @@ class Event {
     lesson = json['lesson'];
     startTime = json['startTime'];
     endTime = json['endTime'];
+    attendanceStatus = json['attendanceStatus'];
+    attendanceComment = json['attendanceComment'];
   }
 
   Map<String, dynamic> toJson() {
