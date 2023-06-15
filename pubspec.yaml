@@ -41,6 +41,8 @@ dependencies:
   lottie: ^2.4.0
   zoom_tap_animation: ^1.1.0
   iconly: ^1.0.1
+  calendar_timeline: ^1.1.2
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:

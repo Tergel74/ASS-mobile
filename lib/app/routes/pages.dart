@@ -4,6 +4,14 @@ import '../modules/initial/view.dart';
 import '../modules/initial/binding.dart';
 import '../modules/auth/sign_in/view.dart';
 import '../modules/auth/sign_in/binding.dart';
+import '../modules/schedule/view.dart';
+import '../modules/schedule/binding.dart';
+import '../modules/profile/view.dart';
+import '../modules/profile/binding.dart';
+import '../modules/task/view.dart';
+import '../modules/task/binding.dart';
+import '../modules/home/view.dart';
+import '../modules/home/binding.dart';
 
 part 'routes.dart';
 
@@ -22,6 +30,26 @@ class AppPages {
       name: _Paths.SIGNIN,
       page: () => SignInView(),
       binding: SignInBinding(),
+    ),
+    GetPage(
+      name: _Paths.SCHEDULE,
+      page: () => ScheduleView(),
+      binding: ScheduleBinding(),
+    ),
+    GetPage(
+      name: _Paths.TASK,
+      page: () => TaskView(),
+      binding: TaskBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => ProfileView(),
+      binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.HOME,
+      page: () => HomeView(),
+      binding: HomeBinding(),
     ),
   ];
 }

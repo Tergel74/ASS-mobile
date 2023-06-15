@@ -8,28 +8,38 @@ class Users {
   String? otp;
   String? newPassword;
   String? pfp;
+  String? houseId;
+  String? role;
+  String? phone;
 
-  Users(
-      {this.userName,
-      this.password,
-      this.id,
-      this.firstName,
-      this.lastName,
-      this.email,
-      this.otp,
-      this.newPassword,
-      this.pfp});
+  Users({
+    this.userName,
+    this.password,
+    this.id,
+    this.firstName,
+    this.lastName,
+    this.email,
+    this.otp,
+    this.newPassword,
+    this.pfp,
+    this.houseId,
+    this.role,
+    this.phone,
+  });
 
   Users.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     userName = json['userName'];
     firstName = json['firstName'];
     lastName = json['lastName'];
-    (json['profilePic'] != null)
-        ? pfp = json['profilePic']
+    (json['imgUrl'] != null)
+        ? pfp = json['imgUrl']
         : pfp =
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOC9SJyjR7x4e6ar9aEc6UpgmyrSfpZaGzUVu_iRpmwOQTp-GKhoy73iNQFRo28VR3GR8&usqp=CAU';
     email = json['email'];
+    houseId = json['houseId'];
+    role = json['role'];
+    phone = json['phone'];
   }
 
   Map<String, dynamic> toJson() {
@@ -42,7 +52,7 @@ class Users {
     (lastName != null) ? data["lastName"] = lastName : null;
     (otp != null) ? data["otp"] = otp : null;
     (newPassword != null) ? data["newPassword"] = newPassword : null;
-    data["profilePic"] = pfp;
+    data["imgUrl"] = pfp;
 
     return data;
   }

@@ -10,8 +10,7 @@ class SignInView extends StatelessWidget {
   // final emailController =
   //     TextEditingController(text: 'tergel.b24@tomujin.edu.mn');
   // final passwordController = TextEditingController(text: '24203');
-  final emailController =
-      TextEditingController(text: 'zayadelger@tomujin.digital');
+  final emailController = TextEditingController(text: 'zayadelgerz@gmail.com');
   final passwordController = TextEditingController(text: '12345678');
 
   Future<void> _checkForm() async {

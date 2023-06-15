@@ -6,11 +6,9 @@ class LoadingAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Lottie.network(
-            'https://assets2.lottiefiles.com/datafiles/bEYvzB8QfV3EM9a/data.json'),
-      ),
+    return Center(
+      child: Lottie.network(
+          'https://assets2.lottiefiles.com/datafiles/bEYvzB8QfV3EM9a/data.json'),
     );
   }
 }
