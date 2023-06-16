@@ -18,6 +18,12 @@ class AuthController extends GetxController {
   final _auth = Get.put<AuthRepository>(AuthRepository());
   late Repository _repo;
 
+  @override
+  void onInit() {
+    checkToken();
+    super.onInit();
+  }
+
   tokenInterval() async {
     Timer.periodic(const Duration(hours: 168), (timer) {
       checkToken();
@@ -34,6 +40,7 @@ class AuthController extends GetxController {
         _repo = Get.put<Repository>(Repository());
         final res = await _repo.getMe();
         user.value = res;
+        print(res.pfp);
         authStatus.value = AuthStatus.authorized;
       } else {
         signOut();

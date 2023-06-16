@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import '../models/user_model.dart';
 import '../models/event_model.dart';
+import '../models/attendance_response.dart';
 import '../../app/utils/api_http_client.dart';
 
 class Repository {
@@ -8,6 +9,8 @@ class Repository {
 
   static const String getMeEndpoint = '/user/me';
   static const String getEventsByDateEndpoint = '/events/getUserEventsByDate';
+  static const String getOverallAttendanceEndpoint =
+      '/attendance/getOverallAttendanceForUser';
 
   Future<dynamic> getMe() async {
     try {
@@ -27,6 +30,17 @@ class Repository {
       List events =
           List<Event>.from(response.data.map((model) => Event.fromJson(model)));
       return events;
+    } on DioException catch (e) {
+      print(e);
+    }
+  }
+
+  Future<dynamic> getAttendance() async {
+    try {
+      final response = await client.get(getOverallAttendanceEndpoint);
+      AttendanceResponse attendance =
+          AttendanceResponse.fromJson(response.data);
+      return attendance;
     } on DioException catch (e) {
       print(e);
     }
