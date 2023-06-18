@@ -6,8 +6,11 @@ class AuthApiHttpClient {
   //     baseUrl: 'https://lms.tomujin.digital/v1',
   //     headers: {'Content-Type': 'application/json'}));
   final dio = Dio(BaseOptions(
-      baseUrl: 'http://10.0.2.2:5111/v1',
+      baseUrl: 'http://192.168.1.81:5111/v1',
       headers: {'Content-Type': 'application/json'}));
+  // final dio = Dio(BaseOptions(
+  //     baseUrl: 'http://10.0.2.2:5111/v1',
+  //     headers: {'Content-Type': 'application/json'}));
 
   Future<dynamic> post(String path, {data}) {
     return dio.post(
