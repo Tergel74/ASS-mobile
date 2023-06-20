@@ -196,7 +196,7 @@ class _ProfileViewState extends State<ProfileView> {
                                         data: _profileController
                                             .attendance.value!.present!),
                                     const SizedBox(height: 6),
-                                    Text(
+                                    const Text(
                                       'Present',
                                       style: TextStyle(
                                           fontWeight: FontWeight.w500,
@@ -212,7 +212,7 @@ class _ProfileViewState extends State<ProfileView> {
                                         data: _profileController
                                             .attendance.value!.late!),
                                     const SizedBox(height: 6),
-                                    Text(
+                                    const Text(
                                       'Late',
                                       style: TextStyle(
                                           fontWeight: FontWeight.w500,
@@ -236,7 +236,7 @@ class _ProfileViewState extends State<ProfileView> {
                                         data: _profileController
                                             .attendance.value!.absent!),
                                     const SizedBox(height: 6),
-                                    Text(
+                                    const Text(
                                       'Absent',
                                       style: TextStyle(
                                           fontWeight: FontWeight.w500,
@@ -252,7 +252,7 @@ class _ProfileViewState extends State<ProfileView> {
                                         data: _profileController
                                             .attendance.value!.excused!),
                                     const SizedBox(height: 6),
-                                    Text(
+                                    const Text(
                                       'Excused',
                                       style: TextStyle(
                                           fontWeight: FontWeight.w500,

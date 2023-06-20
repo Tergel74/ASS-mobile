@@ -11,11 +11,13 @@ class QRScanPopupView extends StatefulWidget {
       {super.key,
       required this.eventId,
       required this.date,
-      required this.startTime});
+      required this.startTime,
+      required this.registerType});
 
   final String eventId;
   final String date;
   final String startTime;
+  final String registerType;
 
   @override
   State<QRScanPopupView> createState() => _QRScanPopupViewState();
@@ -35,12 +37,14 @@ class _QRScanPopupViewState extends State<QRScanPopupView> {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
+    // double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Dialog(
-      child: SizedBox(
-          height: screenHeight * 0.45,
+      child: Container(
+          // decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
+          color: const Color(0xFFf0f2f5),
+          height: screenWidth * 0.8,
           width: screenWidth * 0.8,
           child: Obx(
             () => _qrController.qrStatus.value == QrStatus.completed
@@ -49,22 +53,12 @@ class _QRScanPopupViewState extends State<QRScanPopupView> {
                     ? const LoadingAnimation()
                     : Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: screenWidth * 0.75,
-                              width: screenWidth * 0.75,
-                              child: MobileScanner(
-                                  controller: cameraController,
-                                  onDetect: _foundBarcode),
-                            ),
-                            ElevatedButton(
-                              child: const Text('Close'),
-                              onPressed: () {
-                                Get.back();
-                              },
-                            )
-                          ],
+                        child: SizedBox(
+                          height: screenWidth * 0.75,
+                          width: screenWidth * 0.75,
+                          child: MobileScanner(
+                              controller: cameraController,
+                              onDetect: _foundBarcode),
                         ),
                       ),
           )),
@@ -73,21 +67,29 @@ class _QRScanPopupViewState extends State<QRScanPopupView> {
 
   void _foundBarcode(BarcodeCapture barcode) async {
     _qrController.qrStatus.value = QrStatus.detected;
-    await _locationController.getCurrentLocation();
-    if (_locationController.inZoneStatus.value == InZoneStatus.inside) {
-      final String code = barcode.barcodes[0].rawValue ?? '---';
-      final eventDate = DateTime.parse('${widget.date} ${widget.startTime}:00');
-      final currentDate = DateTime.now();
-      final timeDifference = currentDate.difference(eventDate).inMinutes;
-      _qrController.checkInAttendanceQr(
-          qrString: code,
-          eventId: widget.eventId,
-          date: widget.date,
-          timeDifference: timeDifference);
-    } else {
-      Get.snackbar('Location',
-          'Device is not in ${LocationController.checkRadius} radius of the school!');
-      Get.back();
+    if (widget.registerType == 'locationQr') {
+      await _locationController.getCurrentLocation();
+      if (_locationController.inZoneStatus.value == InZoneStatus.inside) {
+        _checkInAttendanceQr(barcode);
+      } else {
+        Get.snackbar('Location',
+            'Device is not in ${LocationController.checkRadius} radius of the school!');
+        Get.back();
+      }
+    } else if (widget.registerType == 'qr') {
+      _checkInAttendanceQr(barcode);
     }
+  }
+
+  void _checkInAttendanceQr(BarcodeCapture barcode) {
+    final String code = barcode.barcodes[0].rawValue ?? '---';
+    final eventDate = DateTime.parse('${widget.date} ${widget.startTime}:00');
+    final currentDate = DateTime.now();
+    final timeDifference = currentDate.difference(eventDate).inMinutes;
+    _qrController.checkInAttendanceQr(
+        qrString: code,
+        eventId: widget.eventId,
+        date: widget.date,
+        timeDifference: timeDifference);
   }
 }

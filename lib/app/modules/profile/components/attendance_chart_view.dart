@@ -35,8 +35,8 @@ class _AttendanceChartViewState extends State<AttendanceChartView> {
           Center(
               child: Text(
             '${widget.data}/${widget.all}',
-            style: TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.redAccent[100]),
+            style: const TextStyle(
+                fontWeight: FontWeight.bold, color: Colors.deepPurple),
           ))
         ],
       ),

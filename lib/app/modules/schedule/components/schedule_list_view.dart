@@ -59,11 +59,14 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                                       context: context,
                                       builder: (BuildContext context) =>
                                           QRScanPopupView(
-                                              eventId: _scheduleController
-                                                  .events[index].id,
-                                              date: widget.date,
-                                              startTime: _scheduleController
-                                                  .events[index].startTime))
+                                            eventId: _scheduleController
+                                                .events[index].id,
+                                            date: widget.date,
+                                            startTime: _scheduleController
+                                                .events[index].startTime,
+                                            registerType: _scheduleController
+                                                .events[index].registerType,
+                                          ))
                                   : print(_scheduleController
                                       .events[index].attendanceStatus);
                             },
