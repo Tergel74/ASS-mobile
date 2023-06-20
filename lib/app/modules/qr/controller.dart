@@ -17,10 +17,10 @@ class QrController extends GetxController {
     try {
       final response = await _repo.checkInAttendanceQr(
           qrString, eventId, date, timeDifference);
-      if (response.statusCode == 400) {
+      if (response is DioException) {
         Get.back();
-        Get.snackbar(
-            'Error', response.data['message'] ?? 'Something went wrong',
+        Get.snackbar('Error',
+            response.response?.data['message'] ?? 'Something went wrong',
             backgroundColor: Colors.deepPurple, colorText: Colors.white);
       } else {
         qrStatus.value = QrStatus.completed;

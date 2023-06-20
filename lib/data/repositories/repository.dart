@@ -61,7 +61,7 @@ class Repository {
           await client.post(checkInAttendanceQrEndpoint, data: data.toJson());
       return response.data;
     } on DioException catch (e) {
-      return e.response;
+      return e;
     }
   }
 }
