@@ -19,7 +19,7 @@ class Event {
       this.attendanceComment});
 
   Event.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['eventId'];
     name = json['eventName'];
     lesson = json['lesson'];
     startTime = json['startTime'];

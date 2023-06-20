@@ -16,7 +16,7 @@ class LocationController extends GetxController {
 
   static const targetLat = 47.90844313455537;
   static const targetLong = 106.94031407726557;
-  static const checkRadius = 1000; // in meters
+  static const checkRadius = 30; // in meters
 
   // final lat = 47.9054335;
   // final long = 106.9283961;

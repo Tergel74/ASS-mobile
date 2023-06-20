@@ -56,7 +56,7 @@ class _ScheduleViewState extends State<ScheduleView> {
                       dotsColor: const Color(0xFF333A47),
                     ),
                   )),
-              ScheduleListView()
+              ScheduleListView(date: DateFormat('yyyy-MM-dd').format(_scheduleController.selectedDate.value))
             ],
           ),
         ));

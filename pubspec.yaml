@@ -48,6 +48,7 @@ dependencies:
   geolocator: ^9.0.2
   geocoding: ^2.1.0
   great_circle_distance_calculator: ^1.0.4
+  mobile_scanner: ^3.2.0
 
 dev_dependencies:
   flutter_test:

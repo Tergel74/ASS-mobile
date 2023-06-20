@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../controller.dart';
-import '../../initial/components/loading_view.dart';
+import '../../../../widgets/loading_view.dart';
 import '../../qr/view.dart';
 
 class ScheduleListView extends StatefulWidget {
-  const ScheduleListView({Key? key}) : super(key: key);
+  const ScheduleListView({Key? key, required this.date}) : super(key: key);
+  final String date;
 
   @override
   State<ScheduleListView> createState() => _ScheduleListViewState();
@@ -42,6 +43,7 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                       physics: const BouncingScrollPhysics(),
                       itemCount: _scheduleController.events.length,
                       itemBuilder: (BuildContext context, int index) {
+                        print(_scheduleController.events[index].id);
                         return Padding(
                           padding: EdgeInsets.fromLTRB(
                               screenWidth * 0.01,
@@ -56,7 +58,12 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                                   ? showDialog(
                                       context: context,
                                       builder: (BuildContext context) =>
-                                          QRScanPopupView())
+                                          QRScanPopupView(
+                                              eventId: _scheduleController
+                                                  .events[index].id,
+                                              date: widget.date,
+                                              startTime: _scheduleController
+                                                  .events[index].startTime))
                                   : print(_scheduleController
                                       .events[index].attendanceStatus);
                             },

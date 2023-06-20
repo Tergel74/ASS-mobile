@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../auth/sign_in/view.dart';
-import './components/loading_view.dart';
+import '../../../widgets/loading_view.dart';
 import '../auth/controller.dart';
 import '../home/view.dart';
 
