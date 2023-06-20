@@ -13,9 +13,9 @@ class InitialView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() => authController.authStatus.value == AuthStatus.loading
-        ? const LoadingAnimation()
+        ? const Scaffold(body: LoadingAnimation())
         : authController.authStatus.value == AuthStatus.unauthorized
             ? SignInView()
-            : HomeView());
+            : const HomeView());
   }
 }

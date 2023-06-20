@@ -71,7 +71,7 @@ class _HomeViewState extends State<HomeView> {
             icon,
             size: 20,
             color: _homeController.currentPage == page
-                ? Colors.redAccent[100]
+                ? Colors.deepPurple
                 : Colors.grey,
           ),
           Text(
@@ -79,7 +79,7 @@ class _HomeViewState extends State<HomeView> {
             style: TextStyle(
                 fontSize: 13,
                 color: _homeController.currentPage == page
-                    ? Colors.redAccent[100]
+                    ? Colors.deepPurple
                     : Colors.grey,
                 fontWeight: _homeController.currentPage == page
                     ? FontWeight.w600

@@ -73,7 +73,7 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                               height: screenHeight * 0.1,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: Colors.redAccent[100]),
+                                  color: Colors.white),
                               child: Row(
                                 children: [
                                   Container(
@@ -92,7 +92,7 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                                           style: const TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
-                                              color: Colors.white),
+                                              color: Colors.deepPurple),
                                         ),
                                         Text(
                                           _scheduleController
@@ -100,7 +100,7 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                                           style: const TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.w600,
-                                              color: Colors.white),
+                                              color: Colors.deepPurple),
                                         )
                                       ],
                                     ),
@@ -113,18 +113,14 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                                       Text(
                                         _scheduleController
                                             .events[index].lesson,
-                                        style: const TextStyle(
-                                            fontSize: 16,
-                                            color: Color.fromARGB(
-                                                255, 41, 46, 56)),
+                                        style: const TextStyle(fontSize: 16),
                                       ),
                                       Text(
                                         _scheduleController.events[index].name,
                                         style: const TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 22,
-                                            color: Color.fromARGB(
-                                                255, 41, 46, 56)),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 22,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -136,7 +132,7 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                                         attendanceStatusIcons[
                                             _scheduleController.events[index]
                                                 .attendanceStatus],
-                                        color: Colors.white,
+                                        color: Colors.deepPurple,
                                         size: screenWidth * 0.08),
                                   ),
                                   const Spacer()

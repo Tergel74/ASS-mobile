@@ -36,14 +36,18 @@ class _ProfileViewState extends State<ProfileView> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF474a58),
+      backgroundColor: const Color(0xFFf0f2f5),
       appBar: AppBar(
         toolbarHeight: screenHeight * 0.05,
         titleTextStyle: const TextStyle(fontSize: 20),
         elevation: 0,
-        backgroundColor: Colors.redAccent[100],
+        backgroundColor: Colors.white,
         centerTitle: true,
-        title: const Text('My Profile'),
+        title: const Text(
+          'My Profile',
+          style: TextStyle(color: Colors.black),
+        ),
+        actionsIconTheme: const IconThemeData(color: Colors.black),
         actions: [
           PopupMenuButton<String>(
             onSelected: handleClick,
@@ -54,8 +58,7 @@ class _ProfileViewState extends State<ProfileView> {
                   value: choice,
                   child: Text(
                     choice,
-                    style: const TextStyle(
-                        color: Color.fromARGB(255, 41, 46, 56), fontSize: 14),
+                    style: const TextStyle(fontSize: 14),
                   ),
                 );
               }).toList();
@@ -64,6 +67,7 @@ class _ProfileViewState extends State<ProfileView> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: _refreshData,
+            color: Colors.black,
           )
         ],
       ),
@@ -75,7 +79,7 @@ class _ProfileViewState extends State<ProfileView> {
             Container(
               height: screenHeight * 0.15,
               decoration: BoxDecoration(
-                  color: Colors.redAccent[100],
+                  color: Colors.white,
                   borderRadius: const BorderRadiusDirectional.vertical(
                       bottom: Radius.circular(40))),
               child: Padding(
@@ -120,9 +124,7 @@ class _ProfileViewState extends State<ProfileView> {
                             Text(
                               authController.user.value!.firstName!,
                               style: const TextStyle(
-                                  fontSize: 20,
-                                  color: Color.fromARGB(255, 41, 46, 56),
-                                  fontWeight: FontWeight.bold),
+                                  fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(
                               width: 5,
@@ -130,9 +132,7 @@ class _ProfileViewState extends State<ProfileView> {
                             Text(
                               authController.user.value!.lastName!,
                               style: const TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                                  fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
@@ -161,7 +161,7 @@ class _ProfileViewState extends State<ProfileView> {
                       height: screenHeight * 0.45,
                       margin: const EdgeInsets.all(20),
                       decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 101, 104, 121),
+                          color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(20))),
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
@@ -173,16 +173,12 @@ class _ProfileViewState extends State<ProfileView> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Attendance',
-                                    style: TextStyle(
-                                        color: Colors.teal[200], fontSize: 22),
+                                    style: TextStyle(fontSize: 22),
                                   ),
                                   Text(
-                                    'Unregistered: ${_profileController.attendance.value!.unregistered!}',
-                                    style: const TextStyle(
-                                        color: Color.fromARGB(255, 40, 45, 56)),
-                                  )
+                                      'Unregistered: ${_profileController.attendance.value!.unregistered!}')
                                 ],
                               ),
                             ),
@@ -203,7 +199,6 @@ class _ProfileViewState extends State<ProfileView> {
                                     Text(
                                       'Present',
                                       style: TextStyle(
-                                          color: Colors.redAccent[100],
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
                                     )
@@ -220,7 +215,6 @@ class _ProfileViewState extends State<ProfileView> {
                                     Text(
                                       'Late',
                                       style: TextStyle(
-                                          color: Colors.redAccent[100],
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
                                     )
@@ -245,7 +239,6 @@ class _ProfileViewState extends State<ProfileView> {
                                     Text(
                                       'Absent',
                                       style: TextStyle(
-                                          color: Colors.redAccent[100],
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
                                     )
@@ -262,7 +255,6 @@ class _ProfileViewState extends State<ProfileView> {
                                     Text(
                                       'Excused',
                                       style: TextStyle(
-                                          color: Colors.redAccent[100],
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
                                     )

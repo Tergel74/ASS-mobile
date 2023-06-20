@@ -27,7 +27,7 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xFF474a58),
+        backgroundColor: Colors.white,
         body: SafeArea(
           top: true,
           bottom: true,
@@ -37,16 +37,17 @@ class SignInView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('Welcome Back!',
-                    style: TextStyle(fontSize: 25, color: Colors.white)),
+                const Text('Welcome Back!',
+                    style: TextStyle(
+                      fontSize: 25,
+                    )),
                 const SizedBox(height: 25),
                 Container(
                     height: 60,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white)),
+                        color: Colors.grey[200]),
                     child: TextField(
                       controller: emailController,
                       decoration: const InputDecoration(
@@ -60,8 +61,7 @@ class SignInView extends StatelessWidget {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.grey[200],
-                        border: Border.all(color: Colors.white)),
+                        color: Colors.grey[200]),
                     child: TextField(
                       obscureText: true,
                       controller: passwordController,
@@ -79,7 +79,7 @@ class SignInView extends StatelessWidget {
                   ),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.redAccent[100]),
+                        backgroundColor: Colors.deepPurple),
                     child: const Text(
                       'Sign In',
                       style:
@@ -96,16 +96,15 @@ class SignInView extends StatelessWidget {
                   children: <Widget>[
                     const Text(
                       'Not registered?',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.white),
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(width: 5),
                     TextButton(
                       style: TextButton.styleFrom(padding: EdgeInsets.zero),
-                      child: Text(
+                      child: const Text(
                         'Sign up here',
                         style: TextStyle(
-                            color: Colors.teal[200],
+                            color: Color(0xFF38bcc1),
                             fontWeight: FontWeight.bold),
                       ),
                       onPressed: () {},

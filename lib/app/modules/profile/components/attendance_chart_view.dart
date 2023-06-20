@@ -26,9 +26,9 @@ class _AttendanceChartViewState extends State<AttendanceChartView> {
               width: screenWidth * 0.2,
               child: CircularProgressIndicator(
                 value: widget.data / widget.all,
-                backgroundColor: const Color(0xFF474a58),
+                backgroundColor: const Color(0xFFf0f2f5),
                 strokeWidth: 16,
-                color: Colors.redAccent[100],
+                color: Colors.deepPurple,
               ),
             ),
           ),

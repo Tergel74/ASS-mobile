@@ -29,7 +29,7 @@ class _ScheduleViewState extends State<ScheduleView> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-        backgroundColor: const Color(0xFF474a58),
+        backgroundColor: const Color(0xFFf0f2f5),
         body: SafeArea(
           top: true,
           child: Column(
@@ -49,14 +49,17 @@ class _ScheduleViewState extends State<ScheduleView> {
                             date: DateFormat('yyyy-MM-dd').format(date)),
                         _scheduleController.selectedDate.value = date
                       },
-                      monthColor: Colors.blueGrey,
-                      dayColor: Colors.teal[200],
+                      // monthColor: Colors.blueGrey,
+                      // dayColor: Colors.blueGrey[300],
+                      dayColor: Colors.black,
                       activeDayColor: Colors.white,
-                      activeBackgroundDayColor: Colors.redAccent[100],
-                      dotsColor: const Color(0xFF333A47),
+                      activeBackgroundDayColor: Colors.deepPurple,
+                      dotsColor: Colors.white,
                     ),
                   )),
-              ScheduleListView(date: DateFormat('yyyy-MM-dd').format(_scheduleController.selectedDate.value))
+              ScheduleListView(
+                  date: DateFormat('yyyy-MM-dd')
+                      .format(_scheduleController.selectedDate.value))
             ],
           ),
         ));
