@@ -71,14 +71,14 @@ class SignInView extends StatelessWidget {
                           contentPadding: EdgeInsets.symmetric(horizontal: 10)),
                     )),
                 const SizedBox(height: 25),
-                Container(
+                SizedBox(
                   width: double.infinity,
                   height: 60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                         backgroundColor: Colors.deepPurple),
                     child: const Text(
                       'Sign In',
