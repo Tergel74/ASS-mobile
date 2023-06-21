@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:upro/data/models/qr_attendance_model.dart';
+import '../models/qr_attendance_model.dart';
 import '../models/user_model.dart';
 import '../models/event_model.dart';
 import '../models/attendance_response.dart';
