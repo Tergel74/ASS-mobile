@@ -70,7 +70,7 @@ class AuthController extends GetxController {
       await tokenInterval();
       Get.put<Repository>(Repository());
     } on DioException catch (e) {
-      final msg = e.response?.data['message'][0];
+      final msg = e.response?.data['message'];
       print(e.response);
       Get.snackbar('Error', msg ?? 'Something went wrong',
           backgroundColor: Colors.deepPurple, colorText: Colors.white);

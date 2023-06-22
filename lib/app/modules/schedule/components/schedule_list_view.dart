@@ -43,7 +43,6 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                       physics: const BouncingScrollPhysics(),
                       itemCount: _scheduleController.events.length,
                       itemBuilder: (BuildContext context, int index) {
-                        print(_scheduleController.events[index].id);
                         return Padding(
                           padding: EdgeInsets.fromLTRB(
                               screenWidth * 0.01,

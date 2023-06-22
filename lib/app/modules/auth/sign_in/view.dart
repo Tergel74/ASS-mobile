@@ -7,8 +7,8 @@ class SignInView extends StatelessWidget {
 
   final _signInController = Get.put<SignInController>(SignInController());
 
-  final emailController = TextEditingController(text: 'zayadelgerz@gmail.com');
-  final passwordController = TextEditingController(text: '12345678');
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   Future<void> _checkForm() async {
     String email = emailController.text.trim();
