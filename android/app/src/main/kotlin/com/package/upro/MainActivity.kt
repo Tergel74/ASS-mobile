@@ -1,4 +1,4 @@
-package com.tomujintech.alternative
+package tomujin.tech.bass
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
