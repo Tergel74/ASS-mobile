@@ -107,24 +107,29 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                                       ],
                                     ),
                                   ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        _scheduleController
-                                            .events[index].lesson,
-                                        style: const TextStyle(fontSize: 16),
-                                      ),
-                                      Text(
-                                        _scheduleController.events[index].name,
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 22,
+                                  SizedBox(
+                                    width: screenWidth * 0.4,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          _scheduleController
+                                              .events[index].lesson,
+                                          style: const TextStyle(fontSize: 16),
                                         ),
-                                      ),
-                                    ],
+                                        Text(
+                                          _scheduleController
+                                              .events[index].name,
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 22,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                   const Spacer(flex: 3),
                                   _scheduleController
