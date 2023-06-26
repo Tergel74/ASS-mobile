@@ -107,7 +107,9 @@ class SignInView extends StatelessWidget {
                             color: Color(0xFF38bcc1),
                             fontWeight: FontWeight.bold),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed('signUp');
+                      },
                     ),
                   ],
                 )

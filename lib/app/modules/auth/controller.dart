@@ -77,6 +77,14 @@ class AuthController extends GetxController {
     }
   }
 
+  signUp(
+      {required String firstName,
+      required String lastName,
+      required String email,
+      required String password}) async {
+    print('sign up');
+  }
+
   Future<void> refreshToken() async {
     final refreshToken = await storage.readData(StorageKey.refreshToken);
     if (refreshToken == null) {

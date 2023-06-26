@@ -127,16 +127,21 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                                     ],
                                   ),
                                   const Spacer(flex: 3),
-                                  Tooltip(
-                                    message: _scheduleController
-                                        .events[index].attendanceStatus,
-                                    child: Icon(
-                                        attendanceStatusIcons[
-                                            _scheduleController.events[index]
-                                                .attendanceStatus],
-                                        color: Colors.deepPurple,
-                                        size: screenWidth * 0.08),
-                                  ),
+                                  _scheduleController
+                                              .events[index].registerType !=
+                                          'none'
+                                      ? Tooltip(
+                                          message: _scheduleController
+                                              .events[index].attendanceStatus,
+                                          child: Icon(
+                                              attendanceStatusIcons[
+                                                  _scheduleController
+                                                      .events[index]
+                                                      .attendanceStatus],
+                                              color: Colors.deepPurple,
+                                              size: screenWidth * 0.08),
+                                        )
+                                      : SizedBox(width: screenWidth * 0.08),
                                   const Spacer()
                                 ],
                               ),
