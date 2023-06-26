@@ -52,8 +52,11 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                           child: InkWell(
                             onTap: () {
                               _scheduleController
-                                          .events[index].attendanceStatus ==
-                                      'unregistered'
+                                              .events[index].attendanceStatus ==
+                                          'unregistered' &&
+                                      _scheduleController
+                                              .events[index].registerType !=
+                                          'none'
                                   ? showDialog(
                                       context: context,
                                       builder: (BuildContext context) =>
