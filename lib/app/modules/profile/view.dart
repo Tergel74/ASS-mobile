@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import '../auth/controller.dart';
 import 'controller.dart';
 import 'components/attendance_chart_view.dart';
@@ -27,6 +27,7 @@ class _ProfileViewState extends State<ProfileView> {
   }
 
   _refreshData() async {
+    _profileController.profileStatus.value = ProfileStatus.loading;
     await _profileController.getAttendance();
   }
 
@@ -78,9 +79,9 @@ class _ProfileViewState extends State<ProfileView> {
           children: [
             Container(
               height: screenHeight * 0.15,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: Colors.white,
-                  borderRadius: const BorderRadiusDirectional.vertical(
+                  borderRadius: BorderRadiusDirectional.vertical(
                       bottom: Radius.circular(40))),
               child: Padding(
                 padding: EdgeInsets.only(left: screenWidth * 0.05, bottom: 15),
@@ -108,8 +109,9 @@ class _ProfileViewState extends State<ProfileView> {
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                              image:
-                                  NetworkImage(authController.user.value!.pfp!),
+                              // image: NetworkImage(authController.user.value!.pfp!),
+                              image: CachedNetworkImageProvider(
+                                  authController.user.value!.pfp!),
                               fit: BoxFit.cover)),
                     ),
                     const Spacer(
