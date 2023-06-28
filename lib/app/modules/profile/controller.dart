@@ -22,6 +22,7 @@ class ProfileController extends GetxController {
     try {
       final response = await _repo.getAttendance();
       attendance.value = response;
+      profileStatus.value = ProfileStatus.completed;
     } on DioException catch (e) {
       final msg = e.response?.data['message'][0];
       print(e.response);
