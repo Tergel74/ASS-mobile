@@ -22,5 +22,6 @@
   <string>1.0</string>
   <key>MinimumOSVersion</key>
   <string>11.0</string>
+  <key>CFBundleIdentifier</key> <string>tomujin.tech.bass.app</string>
 </dict>
 </plist>
