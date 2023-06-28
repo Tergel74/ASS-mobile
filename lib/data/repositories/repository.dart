@@ -3,6 +3,7 @@ import '../models/qr_attendance_model.dart';
 import '../models/user_model.dart';
 import '../models/event_model.dart';
 import '../models/attendance_response.dart';
+import '../models/attendance_list_response.dart';
 import '../../app/utils/api_http_client.dart';
 
 class Repository {
@@ -14,6 +15,8 @@ class Repository {
       '/attendance/getOverallAttendanceForUser';
   static const String checkInAttendanceQrEndpoint =
       '/attendance/checkInAttendanceQr';
+  static const String getAttendanceForStatusEndpoint =
+      '/attendance/getAttendanceForStatusForUser';
 
   Future<dynamic> getMe() async {
     try {
@@ -44,6 +47,19 @@ class Repository {
       AttendanceResponse attendance =
           AttendanceResponse.fromJson(response.data);
       return attendance;
+    } on DioException catch (e) {
+      print(e);
+    }
+  }
+
+  Future<dynamic> getAttendanceForStatus(String status) async {
+    try {
+      AttendanceListResponse data = AttendanceListResponse(status: status);
+      final response = await client.post(getAttendanceForStatusEndpoint,
+          data: data.toJson());
+      List attendances = List<AttendanceListResponse>.from(
+          response.data.map((model) => AttendanceListResponse.fromJson(model)));
+      return attendances;
     } on DioException catch (e) {
       print(e);
     }

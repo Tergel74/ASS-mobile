@@ -196,7 +196,8 @@ class _ProfileViewState extends State<ProfileView> {
                                         all: _profileController
                                             .attendance.value!.all!,
                                         data: _profileController
-                                            .attendance.value!.present!),
+                                            .attendance.value!.present!,
+                                        status: 'present'),
                                     const SizedBox(height: 6),
                                     const Text(
                                       'Present',
@@ -212,7 +213,8 @@ class _ProfileViewState extends State<ProfileView> {
                                         all: _profileController
                                             .attendance.value!.all!,
                                         data: _profileController
-                                            .attendance.value!.late!),
+                                            .attendance.value!.late!,
+                                        status: 'late'),
                                     const SizedBox(height: 6),
                                     const Text(
                                       'Late',
@@ -236,7 +238,8 @@ class _ProfileViewState extends State<ProfileView> {
                                         all: _profileController
                                             .attendance.value!.all!,
                                         data: _profileController
-                                            .attendance.value!.absent!),
+                                            .attendance.value!.absent!,
+                                        status: 'absent'),
                                     const SizedBox(height: 6),
                                     const Text(
                                       'Absent',
@@ -252,7 +255,8 @@ class _ProfileViewState extends State<ProfileView> {
                                         all: _profileController
                                             .attendance.value!.all!,
                                         data: _profileController
-                                            .attendance.value!.excused!),
+                                            .attendance.value!.excused!,
+                                        status: 'excused'),
                                     const SizedBox(height: 6),
                                     const Text(
                                       'Excused',
