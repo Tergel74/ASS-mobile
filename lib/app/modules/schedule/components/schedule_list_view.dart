@@ -26,7 +26,7 @@ class _ScheduleListViewState extends State<ScheduleListView> {
       'late': MdiIcons.clockAlertOutline,
       'excused': MdiIcons.bookClockOutline,
       'absent': MdiIcons.exclamationThick,
-      'unregistered': MdiIcons.dotsHorizontal
+      'unregistered': MdiIcons.dotsHorizontal,
     };
 
     return Expanded(
@@ -52,11 +52,8 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                           child: InkWell(
                             onTap: () {
                               _scheduleController
-                                              .events[index].attendanceStatus ==
-                                          'unregistered' &&
-                                      _scheduleController
-                                              .events[index].registerType !=
-                                          'none'
+                                          .events[index].attendanceStatus ==
+                                      'unregistered'
                                   ? showDialog(
                                       context: context,
                                       builder: (BuildContext context) =>
@@ -135,21 +132,16 @@ class _ScheduleListViewState extends State<ScheduleListView> {
                                     ),
                                   ),
                                   const Spacer(flex: 3),
-                                  _scheduleController
-                                              .events[index].registerType !=
-                                          'none'
-                                      ? Tooltip(
-                                          message: _scheduleController
-                                              .events[index].attendanceStatus,
-                                          child: Icon(
-                                              attendanceStatusIcons[
-                                                  _scheduleController
-                                                      .events[index]
-                                                      .attendanceStatus],
-                                              color: Colors.deepPurple,
-                                              size: screenWidth * 0.08),
-                                        )
-                                      : SizedBox(width: screenWidth * 0.08),
+                                  Tooltip(
+                                    message: _scheduleController
+                                        .events[index].attendanceStatus,
+                                    child: Icon(
+                                        attendanceStatusIcons[
+                                            _scheduleController.events[index]
+                                                .attendanceStatus],
+                                        color: Colors.deepPurple,
+                                        size: screenWidth * 0.08),
+                                  ),
                                   const Spacer()
                                 ],
                               ),
