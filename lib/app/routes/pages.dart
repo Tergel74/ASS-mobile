@@ -14,6 +14,8 @@ import '../modules/home/view.dart';
 import '../modules/home/binding.dart';
 import '../modules/auth/sign_up/view.dart';
 import '../modules/auth/sign_up/binding.dart';
+import '../modules/daily_form/view.dart';
+import '../modules/daily_form/binding.dart';
 
 part 'routes.dart';
 
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.SIGNUP,
       page: () => SignUpView(),
       binding: SignUpBinding(),
+    ),
+    GetPage(
+      name: _Paths.DAILYFORM,
+      page: () => DailyFormView(),
+      binding: DailyFormBinding(),
     ),
   ];
 }

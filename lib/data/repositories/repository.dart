@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import '../models/form_model.dart';
 import '../models/qr_attendance_model.dart';
 import '../models/user_model.dart';
 import '../models/event_model.dart';
@@ -17,6 +18,8 @@ class Repository {
       '/attendance/checkInAttendanceQr';
   static const String getAttendanceForStatusEndpoint =
       '/attendance/getAttendanceForStatusForUser';
+  static const String getFormEndpoint = '/form/getForm';
+  static const String answerFormEndpoint = '/form/answerform';
 
   Future<dynamic> getMe() async {
     try {
@@ -78,6 +81,27 @@ class Repository {
       return response.data;
     } on DioException catch (e) {
       return e;
+    }
+  }
+
+  Future<dynamic> getForm() async {
+    try {
+      final response = await client.get(getFormEndpoint);
+      Forms form = Forms.fromJson(response.data);
+      return form;
+    } on DioException catch (e) {
+      print(e);
+    }
+  }
+
+  Future<dynamic> answerForm(String formId, List questions) async {
+    try {
+      Forms data = Forms(id: formId, questionsTo: questions);
+      final response =
+          await client.post(answerFormEndpoint, data: data.toJson());
+      return response;
+    } on DioException catch (e) {
+      print(e);
     }
   }
 }

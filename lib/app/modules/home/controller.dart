@@ -10,7 +10,7 @@ class HomeController extends GetxController {
 
   RxInt currentPage = 0.obs;
 
-  List<Widget> pages = [ScheduleView(), const TaskView(), ProfileView()];
+  List<Widget> pages = [ScheduleView(), TaskView(), ProfileView()];
 
   void goToPage(int page) {
     currentPage.value = page;
